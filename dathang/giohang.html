@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng</title>
+    <script>
+        var products=[];
+        function tinh()
+        {
+          var x={};
+          x.title=document.getElementById("title").value;
+          x.price=document.getElementById("price").value;
+          x.sl=document.getElementById("sl").value;
+          x.tt=document.getElementById("tt").innerText=Number(x.sl)*Number(x.price);
+          products.push(x);
+          
+          var iDiv=document.createElement("div");
+          iDiv.id=products.length;
+          document.getElementsByTagName("body") [0].appendChild(iDiv);//đưa thể Div vào body
+         var element=document.getElementById(products.length);
+         var span=document.createElement("span");
+         var textSpan=document.createTextNode("Title: "+x.title+"---");
+         span.appendChild(textSpan);
+         element.appendChild(span);
+         //tao span va add vao div 
+          span=document.createElement("span");
+          textSpan=document.createTextNode("Thành tiền: "+x.tt+"---");
+         span.appendChild(textSpan);
+         element.appendChild(span);
+   }
+    </script>
+</head>
+<body>
+    Sản phẩm: <input id="title" type="text"/>
+    Giá: <input type="number" id="price" />
+    Số lượng: <input type="number" id="sl" />
+    <button id="btn" onclick="tinh()">Tính</button>
+    Thành tiền: <label id="tt" for=""></label>
+    <div>
+        <h3>Thông tin giỏ hàng</h3>
+    </div>
+</body>
+</html>
